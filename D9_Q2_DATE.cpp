@@ -32,6 +32,14 @@ class Date{
         //     this->month=month;
         //     this->year=year;
         // }
+        void Read(){
+            int a,b,c;
+            cout<<"\nEnter date: "<<endl;
+            cin>>a>>b>>c;
+            day=a;
+            month=b;
+            year=c;
+        }
         void Read(int d,int m,int y){
             day=d;
             month=m;
@@ -53,10 +61,10 @@ class Date{
             }
             return false;
         };
-        bool operator <=(Date obj2){
+        bool operator <(Date obj2){
             if(year<=obj2.year){
                 if(month<=obj2.month){
-                    if(day<=obj2.day){
+                    if(day<obj2.day){
                         return true;
                     }
                     return false;
@@ -65,10 +73,10 @@ class Date{
             }
             return false;
         };
-        bool operator >=(Date obj2){
+        bool operator >(Date obj2){
             if(year>=obj2.year){
                 if(month>=obj2.month){
-                    if(day>=obj2.day){
+                    if(day>obj2.day){
                         return true;
                     }
                     return false;
@@ -84,12 +92,16 @@ class Date{
 int main(){
     // cout<<"\nRunning";
     Date kal,aaj;
+    int a,b,c;
+    // cout<<"\nEnter date: "<<endl;
+    // cin>>a>>b>>c;
     //Date kal;
     //aaj.day(20);
     aaj.Read(20,9,2023);
     aaj.Write();
+    kal.Read();
     // cout<<"\nRunning";
-    kal.Read(19,9,2024);
+    //kal.Read(a,b,c);
     kal.Write();
     if(aaj==kal){
         cout<<"\ndates are same\n";
@@ -98,11 +110,17 @@ int main(){
     //     cout<<"\nDifferent dates\n";
     // }
     else{
-    if(aaj<=kal){
+    if(aaj<kal){
         cout<<"\n Tommorow\n";
     }
-    if(aaj>=kal){
+    else{
+        cout<<"\nnot tommorow";
+    }
+    if(aaj>kal){
         cout<<"\nYesterday\n";
+    }
+    else{
+        cout<<"\nnot yesterday";
     }
     }
 
